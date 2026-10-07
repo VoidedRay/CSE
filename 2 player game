@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<head>
+<body>
+
+<h1 style="font-family: 'Comic Sans MS', Comic Sans;">Guess the Number</h1>
+
+<p style="font-family: 'Comic Sans MS', Comic Sans;">Player 1: Enter a number</p>
+<input type="number" id="number" min="1" max="100" step="1">
+
+<button onclick="start()"button style="background-color: rgb(8, 80, 102); color: white;">Start</button>
+</script>
+
+<div id="game" style="display:none">
+    <p id="tries">5</p>
+<p id="text"></p>
+    <p style="font-family: 'Comic Sans MS', Comic Sans;">Player 2: Guess the number</p>
+    <input type="number" id="guess" min="1" max="100" step="1">
+
+
+<button onclick="check()"button style="background-color: rgb(8, 80, 102); color: white;">Guess</button>
+    <p id="result">
+</div>
+
+
+
+</div>
+
+<script>
+
+
+let secretnum;
+function start() {
+let answer;
+    secretnum = document.getElementById("number").value 
+    document.getElementById("game").style.display = "block";
+      if (secretnum==67) {
+        alert("I'm disappointed in you");
+    }
+    else if (secretnum==69) {
+        alert("Are you trolling gang?? Lock in");
+    }
+    else if (secretnum > 100) {
+        alert("Please put an integer between 1 and 100")
+     secretnum = 100
+    }
+        else if (secretnum < 1) {
+        alert("Please put an integer between 1 and 100")
+    secretnum = 1
+    }
+  
+    else {
+       alert("Number submitted!");
+    }
+     document.getElementById("number").value =""
+ 
+   
+}
+
+function check() {
+ const tries = document.getElementById("tries");
+ tries.innerHTML -= 1;
+ 
+ if (tries.innerHTML === "0") {
+    alert("Eat dirt loser");
+    window.close()
+}
+    let guess = document.getElementById("guess").value;
+
+    if (guess < secretnum) {
+        document.getElementById("result").innerHTML = "You 笨蛋, that's too low";
+    }
+
+    else if (guess > secretnum) {
+        document.getElementById("result").innerHTML = "You 笨蛋, that's too high";
+    }
+
+    else {
+        alert("Wow you got it correct!! Good job");
+    }
+
+}
+
+</script>
+
+</body>
+</html>
